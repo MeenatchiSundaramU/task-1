@@ -1,0 +1,15 @@
+var app = {
+        user:{
+            user:"nospam@ez.no",
+            account:"anonymous",
+            email:"nospam@ez.no",
+            name:"Anonymous User",
+            region:"Tamil Nadu",
+            country:"IN",
+            city:"Cuddalore"
+        },
+        categorization:{
+            hierarchy5:"21623"
+        },
+        ip:"144.48.49.252"
+};

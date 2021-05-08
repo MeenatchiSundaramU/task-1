@@ -1,0 +1,229 @@
+body{
+    background-color:blue;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    background-color: transparent;
+    color:#ededed;
+    text-align: right;
+}
+
+.header{
+    background-color:#099;
+    color:green;
+    font-size: 30px;
+    border-color: #080808;
+    min-height: 60px;
+    border: 1px solid transparent;
+}
+
+.inner-header{
+    color:gray;
+    width:20%;
+    height: 10%;
+    text-align: top;
+    margin:auto;
+}
+
+.logo{
+    float: center;
+    height: 10px;
+    padding: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.header-link{
+    float:right;
+    font-size:14px;
+    height: 50px;
+    padding: 15px 15px;
+text-align: center;
+    font-size:16px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.content{
+    min-height: 600px;
+}
+
+.banner-image{
+    padding-bottom: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(./img/back2.jpeg) no-repeat center;
+    background-size: cover;
+}
+
+.inner-banner-image{
+    padding-top: 12%;
+    width:80%;
+    margin:auto;
+}
+
+.banner_content{
+    color:pink;
+    position: relative;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    overflow:hidden;
+    margin-bottom: 12%;
+    background-color: rgba(0, 0, 0, 0.7);
+    max-width: 660px;
+    border-radius: 10px;
+}
+.button{
+    color: #fff;
+    background-color:#007;
+    border-color: #FF5000;
+    box-shadow: inset 0 8px 5px rgba(0, 0, 0, .125);
+    padding: 1px 5px;
+    font-size: 10px;
+    border-radius: 6px;
+    -webkit-transition: all 0.5s;
+}
+.button:hover{
+    background: pink;
+    color:yellow;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    overflow:hidden;
+}
+
+.items{
+    width: 30%;
+    display: block;
+    padding: 5px;
+    margin-bottom: 20px;
+    line-height: 1.52857143;
+    background-color:silver;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    float:left;
+    margin-left:1%;
+}
+
+.thumbnail{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 0 auto;
+}
+
+.caption{
+    color:black;
+    padding:0px 10px 10px;
+    text-align: center;
+}
+
+.footer{
+   background-color: #000;
+   color:#fff;
+   font-size:14px;
+   text-align: center;
+}
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #765;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color:red;
+  color: yellow;
+}
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+.topnav input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+ .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+
+.navbar {
+  overflow: hidden;
+  background-color: #222;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: yellow;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: green;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: yellow;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  background-color: yellow;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: green;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
