@@ -20,6 +20,8 @@ public class response extends HttpServlet
 	@SuppressWarnings("unused")
 	protected void service(HttpServletRequest req,HttpServletResponse resp) throws IOException
 	{
+	        HttpSession session=req.getSession();
+		String username=(String) session.getAttribute("names");
 		String error=req.getParameter("error");
 		if(error!=null)
 		{
@@ -37,7 +39,7 @@ public class response extends HttpServlet
 	     int finind2=access_token.toString().lastIndexOf('"');
 	     if(access_token.toString().substring(finind1, finind2).equals("success")) {
 	    	 try {
-					uploadDatabase(access_token,req.getParameter("name").toString());
+					uploadDatabase(access_token,req.getParameter(username).toString());
 					} catch (ClassNotFoundException | SQLException e) {
 						e.printStackTrace();
 				 }
@@ -68,16 +70,25 @@ public class response extends HttpServlet
 	}
 	void uploadDatabase(String persistent_tokens,String name) throws ClassNotFoundException, SQLException
 	{
-		String url="jdbc:mysql://localhost:3306/users";
-		String uname="root";
-		String pass="";
-		String query="Insert into client values(name,persistent_tokens)";
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection co=DriverManager.getConnection(url,uname,pass);
-		Statement st=co.createStatement();
-		ResultSet rs=st.executeQuery(query);
-		st.close();
-		co.close();
+		 Connection c = null;
+                 Statement stmt = null;
+		 try {
+         Class.forName("org.sqlite.JDBC");
+         c = DriverManager.getConnection("jdbc:sqlite:C://sqlite-tools-win32-x86-3350500//loginusers");
+         c.setAutoCommit(false);
+         System.out.println("database Opened");
+	 stmt = c.createStatement();
+         String sql = "INSERT INTO USERS(NAME,ACCESSTOKEN) VALUES("+name+","+persistent_tokens+");";//PRIMARY KEY---->ID AUTO GENERATED;
+         stmt.executeUpdate(sql);
+	 stmt.close();
+         c.commit();
+         c.close();
+      } catch ( Exception e ) {
+         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+         System.exit(0);
+      }
+      System.out.println("USERS ADDED");
+   }
 	}
 }
 
