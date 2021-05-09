@@ -10,6 +10,8 @@ public class Login extends HttpServlet
 {
     protected void service(HttpServletRequest req,HttpServletResponse res) throws IOException
     {
+         HttpSession session=req.getSession();
+    	 session.setAttribute("names",req.getParameter("name"));
          res.sendRedirect("https://accounts.zoho.com/oauth/v2/auth?response_type=code&client_id=1000.CU8EIFGUKKWO76XF6DJI5PMJ072P2T&scope=AaaServer.profile.Read&redirect_uri=http://localhost:8080/final/resp&access_type=offline");
     }
 }
