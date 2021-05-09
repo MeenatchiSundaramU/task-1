@@ -17,8 +17,16 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/resp"})
 public class response extends HttpServlet 
 {
+	@SuppressWarnings("unused")
 	protected void service(HttpServletRequest req,HttpServletResponse resp) throws IOException
 	{
+		String error=req.getParameter("error");
+		if(error!=null)
+		{
+			resp.sendRedirect("http://localhost:8080/final/index.html");
+		}
+		else if(error==null)
+		{
 		String code=req.getParameter("code");
 		String grand_token_api="https://accounts.zoho.com/oauth/v2/token?grant_type=authorization_code&client_id=1000.CU8EIFGUKKWO76XF6DJI5PMJ072P2T&client_secret=1a69af9c58c99acb88dd7de3be5698fe9de8cfd01a&redirect_uri=http://localhost:8080/final/resp&code="+req.getParameter("code");
 		String grand_token=callFun(grand_token_api);
@@ -28,16 +36,20 @@ public class response extends HttpServlet
 	     int finind1=access_token.toString().indexOf(":")+2;
 	     int finind2=access_token.toString().lastIndexOf('"');
 	     if(access_token.toString().substring(finind1, finind2).equals("success")) {
-	        	resp.sendRedirect("http://localhost:8080/final/resp.html");
-	        	try {
+	    	 try {
 					uploadDatabase(access_token,req.getParameter("name").toString());
-				} catch (ClassNotFoundException | SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	        }
+					} catch (ClassNotFoundException | SQLException e) {
+						e.printStackTrace();
+				 }
+	        	resp.sendRedirect("http://localhost:8080/final/resp.html");
+	             }
+	     else
+	     {
+	    	 resp.sendRedirect("http://localhost:8080/final/index.html");
+	     }
 	     
-}
+         }
+	}
 	String callFun(String url) throws IOException
 	{
 		URL obj= new URL(url);
